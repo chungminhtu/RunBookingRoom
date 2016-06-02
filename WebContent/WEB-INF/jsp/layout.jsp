@@ -2,24 +2,38 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="./codebase/demo.css" />
-<link rel="stylesheet" type="text/css"	href="./codebase/dhtmlxscheduler_flat.css" />
-<script type="text/javascript" src="./codebase/dhtmlxscheduler.js"	charset="utf-8"></script>
+<link rel="stylesheet" type="text/css"
+	href="./codebase/dhtmlxscheduler_flat.css" />
+<script type="text/javascript" src="./codebase/dhtmlxscheduler.js"
+	charset="utf-8"></script>
 <!-- <script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_cookie.js" charset="utf-8"></script> -->
-<script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_limit.js" charset="utf-8"></script>
-<script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_recurring.js" charset="utf-8"></script>
-<script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_timeline.js" charset="utf-8"></script>
-<script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_treetimeline.js" charset="utf-8"></script>
-<script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_readonly.js" charset="utf-8"></script>
-<script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_minical.js" charset="utf-8"></script>
-<script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_tooltip.js" charset="utf-8"></script>
-<script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_collision.js" charset="utf-8"></script>
-<script type="text/javascript" src="./codebase/locale/locale_vn.js"	charset="utf-8"></script>
-<script type="text/javascript"	src="./codebase/locale/recurring/locale_recurring_vn.js"	charset="utf-8"></script>
+<script type="text/javascript"
+	src="./codebase/ext/dhtmlxscheduler_limit.js" charset="utf-8"></script>
+<script type="text/javascript"
+	src="./codebase/ext/dhtmlxscheduler_recurring.js" charset="utf-8"></script>
+<script type="text/javascript"
+	src="./codebase/ext/dhtmlxscheduler_timeline.js" charset="utf-8"></script>
+<script type="text/javascript"
+	src="./codebase/ext/dhtmlxscheduler_treetimeline.js" charset="utf-8"></script>
+<script type="text/javascript"
+	src="./codebase/ext/dhtmlxscheduler_readonly.js" charset="utf-8"></script>
+<script type="text/javascript"
+	src="./codebase/ext/dhtmlxscheduler_minical.js" charset="utf-8"></script>
+<script type="text/javascript"
+	src="./codebase/ext/dhtmlxscheduler_tooltip.js" charset="utf-8"></script>
+<script type="text/javascript"
+	src="./codebase/ext/dhtmlxscheduler_collision.js" charset="utf-8"></script>
+<script type="text/javascript" src="./codebase/locale/locale_vn.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="./codebase/locale/recurring/locale_recurring_vn.js"
+	charset="utf-8"></script>
 <title>Hệ thống đặt phòng họp</title>
 <style type="text/css" media="screen">
 html, body {
@@ -145,7 +159,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	font-size: 12px !important;
 }
 
- 
 .dhx_matrix_line .caltitle {
 	color: #fff;
 	font-weight: bold;
@@ -158,12 +171,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	margin: 16px 10px 0px -6px;
 }
 
-.dhx_cal_event_clear .caltitle   { 
-    display: inline-block;
+.dhx_cal_event_clear .caltitle {
+	display: inline-block;
 }
+
 .dhx_scale_bar {
-    width: 32px !important;
+	width: 32px !important;
 }
+
 .dhx_cal_event_line {
 	border: none !important;
 	-webkit-border-radius: none !important;
@@ -173,12 +188,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	padding: 3px 0px 0 12px !important;
 }
 
-.dhx_cal_light .dhx_title { 
-    padding-left: 13px;
-    margin-top: 3px;
+.dhx_cal_light .dhx_title {
+	padding-left: 13px;
+	margin-top: 3px;
 }
+
 .no_resize .dhx_event_resize {
-     display:none;
+	display: none;
 }
 </style>
 
@@ -197,83 +213,105 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 		scheduler.config.full_day = true;
 		scheduler.config.select = false;
 
-		 var groupnames = [ 
-		       			{ key: 'TrainingCenter', label: 'TrainingCenter' }, 
-		       			{ key: 'BGĐ', label: 'BGĐ' },
-		       			{ key: '-----------', label: '-----------' },
-		       			{ key: 'TenTen', label: 'TenTen' },
-		       			{ key: 'Z.Com', label: 'Z.Com' },
-		       			{ key: 'InfoQ', label: 'InfoQ' },
-		       			{ key: 'Network', label: 'Network' },
-		       			{ key: '-----------', label: '-----------' },
-		       			{ key: 'Admin', label: 'Admin' }, 
-		       			{ key: 'KeToan', label: 'KeToan' }, 
-		       			{ key: 'HR', label: 'HR' }, 
-		       			{ key: 'BrSE', label: 'BrSE' }, 
-		       			{ key: 'Assistant', label: 'Assistant' }, 
-		       			{ key: '-----------', label: '-----------' },
-		       			{ key: 'BSD', label: 'BSD' }, 			
-		       			{ key: 'DIV1', label: 'DIV1' }, 
-		       			{ key: 'PHP1', label: 'PHP1' },
-		       			{ key: 'Smart', label: 'Smart' }, 
-		       			{ key: 'Graphic', label: 'Graphic' },
-		       			{ key: '-----------', label: '-----------' },
-		       			{ key: 'DIV2', label: 'DIV2' }, 
-		       			{ key: 'DIV3', label: 'DIV3' }, 
-		       			{ key: 'Comm', label: 'Comm'},
-		       			{ key: 'R&D', label: 'R&D' },
-		       			{ key: '-----------', label: '-----------' },
-		       			{ key: 'VNLab', label: 'VNLab' },
-		       			{ key: 'Others', label: 'Others' },
-		       			{ key: 'Khach', label: 'Khach' },
-		       			{ key: '-----------', label: '-----------' },
-		       			{ key: 'Tokyo', label: 'Tokyo' },
-		       			{ key: 'DaNang', label: 'DaNang' },
-		       			{ key: 'HCM', label: 'HCM' }
-		       		];
-		       		 
-		var types = [
-						{ key: '', label: 'Meeting' },
-						{ key: 'Training', label: 'Training' },
-						{ key: 'Seminar', label: 'Seminar' },
-						{ key: 'Other', label: 'Other' }
-					];
-		 
-		var rooms = [{key:44, label:"Chi Nhánh Hà Nội", open: true, children: [
-	     				{key:20, label:"HN - Phòng MT1"}, 
-	     				{key:30, label:"HN - Phòng MT2"},
-	     				{key:35, label:"HN - Phòng MT3"},
-	     				{key:40, label:"HN - Việt Nam Lab"},
-	     				{key:50, label:"HN - Phòng Mr Tẩu"} 
-	     			]},
-	     			{key:66, label:"Chi nhánh Đà Nẵng", open:true, children: [
-	     				{key:60, label:"ĐN - Phòng MT1"}
-	     			]},
-	     			{key:88, label:"Chi nhánh Hồ Chí Minh", open:true, children: [
-	     				{key:80, label:"HCM - Phòng MT1"}
- 		     		]},
-	     			{key:99, label:"Chi nhánh Tokyo", open:true, children: [
-	     				{key:100, label:"Tokyo - Phòng MT1"} 
-  		     		]}
- 		     	];
-				
-		scheduler.config.lightbox.sections=[
-			{name:"text", height:43, type:"textarea" , focus:true,  map_to: "text" }, 
-			{name:"groupnames", height:20, type:"select", options: groupnames, map_to:"groupnames" },  
-			{name:"rooms", height:23, type:"timeline", options:null , map_to:"rooms" }, 
-			{name:"types", height:20, type:"select", options: types, map_to:"types" }, 
-			{name:"notes", height:100, type:"textarea", map_to: "notes" },
-			{name:"password", height:60, type:"textarea", map_to: "password" },
-			{name:"recurring", height:115, type:"recurring", map_to:"rec_type", button:"recurring"},
-			{name:"time", height:72, type:"time", map_to:"auto" }
-		];
+		var groupnames = [ {key : 'TrainingCenter',	label : 'TrainingCenter'}, 
+		                   {key : 'BGĐ',label : 'BGĐ'}, 
+		                   {key : '-----------',label : '-----------'}, 
+		                   {key : 'TenTen',label : 'TenTen'}, 
+		                   {key : 'Z.Com',label : 'Z.Com'}, 
+		                   {key : 'InfoQ',label : 'InfoQ'}, 
+		                   {key : 'Network',label : 'Network'}, 
+		                   {key : '-----------',label : '-----------'}, 
+		                   {key : 'Admin',label : 'Admin'}, 
+		                   {key : 'KeToan',label : 'KeToan'}, 
+		                   {key : 'HR',label : 'HR'}, 
+		                   {key : 'BrSE',label : 'BrSE'}, 
+		                   {key : 'Assistant',label : 'Assistant'}, 
+		                   {key : 'SmileTeam',label : 'SmileTeam'}, 
+		                   {key : '-----------',label : '-----------'}, 
+		                   {key : 'BSD',label : 'BSD'}, 
+		                   {key : 'HanBai',label : 'HanBai'}, 
+		                   {key : 'DIV1',label : 'DIV1'}, 
+		                   {key : 'PHP1',label : 'PHP1'}, 
+		                   {key : 'Smart',label : 'Smart'}, 
+		                   {key : 'Graphic',label : 'Graphic'}, 
+		                   {key : '-----------',label : '-----------'}, 
+		                   {key : 'DIV2',label : 'DIV2'}, 
+		                   {key : 'DIV3',label : 'DIV3'}, 
+		                   {key : 'Comm',label : 'Comm'}, 
+		                   {key : 'R&D',label : 'R&D'}, 
+		                   {key : '-----------',label : '-----------'}, 
+		                   {key : 'VNLab',label : 'VNLab'}, 
+		                   {key : 'Others',label : 'Others'}, 
+		                   {key : 'Khach',label : 'Khach'}, 
+		                   {key : '-----------',label : '-----------'}, 
+		                   {key : 'RSJP',label : 'RSJP'}, 
+		                   {key : 'DaNang',label : 'DaNang'}, 
+		                   {key : 'HCM',label : 'HCM'} 
+		                 ];
+
+		var types = [ 
+		              {key : '',label : 'Meeting'}, 
+		              {key : 'Training',label : 'Training'}, 
+		              {key : 'Seminar',label : 'Seminar'}, 
+		              {key : 'Other',label : 'Other'} ];
+
+		var rooms = [ 
+		              {key : 44,label : "Chi Nhánh Hà Nội",open : true,children : 
+		            	  [ 
+                            {key : 20,label : "HN - Phòng MT1"}, 
+                            {key : 30,label : "HN - Phòng MT2"}, 
+                            {key : 35,label : "HN - Phòng MT3"}, 
+                            {key : 40,label : "HN - Việt Nam Lab"}, 
+                            {key : 50,label : "HN - Phòng Mr Tẩu"} 
+                          ]
+		}, {
+			key : 66,
+			label : "Chi nhánh Đà Nẵng",
+			open : true,
+			children : [ {
+				key : 60,
+				label : "ĐN - Phòng MT1"
+			} ]
+		}, {
+			key : 88,
+			label : "Chi nhánh Hồ Chí Minh",
+			open : true,
+			children : [ {
+				key : 80,
+				label : "HCM - Phòng MT1"
+			} ]
+		}, {
+			key : 99,
+			label : "Chi nhánh Tokyo",
+			open : true,
+			children : [ {
+				key : 100,
+				label : "Tokyo - Phòng MT1"
+			} ]
+		} ];
+		var passwordPlaceHolder ="Yêu cầu có MK mới đc sửa cuộc họp này.";
+		var requestsPlaceHolder ="Nước, Máy chiếu hoặc tài sản phục vụ cuộc họp hoặc khách hàng...";
+		var notesPlaceHolder ="Nhập tóm tắt nội dung thu được sau cuộc họp, các Notes cần lưu ý hoặc TaskList cần hoàn thành.";
 		
+		scheduler.config.lightbox.sections = [ 
+		                                       {name : "text",height : 43,type : "textarea",focus : true,map_to : "text"}, 
+												{name : "groupnames",height : 20,type : "select",options : groupnames,map_to : "groupnames"}, 
+												{name : "rooms",height : 23,type : "timeline",options : null,map_to : "rooms"}, 
+												{name : "types",height : 20,type : "select",options : types,map_to : "types"}, 
+												{name : "requests",height : 50,type : "textarea",map_to : "requests" , default_value: requestsPlaceHolder}, 
+												{name : "notes",height : 100,type : "textarea",map_to : "notes", default_value: notesPlaceHolder}, 
+												{name : "password",height : 60,type : "textarea",map_to : "password", default_value: passwordPlaceHolder}, 
+												{name : "recurring",height : 115,type : "recurring",map_to : "rec_type",button : "recurring"}, 
+												{name : "time",height : 72,type : "time",map_to : "auto"} 
+											 ];
+
 		scheduler.locale.labels.section_rooms = "Phòng họp:";
 		scheduler.locale.labels.section_groupnames = "Nhóm đăng ký:";
 		scheduler.locale.labels.section_text = "Nội dung, Chủ đề:";
-		scheduler.locale.labels.section_notes = "Tóm tắt kết quả sau cuộc họp:";
-		scheduler.locale.labels.section_password = "Mật khẩu (Yêu cầu có MK mới đc sửa cuộc họp này):";
+		scheduler.locale.labels.section_notes = "Kết quả:";
+		scheduler.locale.labels.section_password = "Mật khẩu:";
 		scheduler.locale.labels.section_types = "Loại:";
+		scheduler.locale.labels.section_requests = "Yêu cầu chuẩn bị:";
 
 		scheduler.templates.event_class = function(start, end, event) {
 			var css = "";
@@ -282,9 +320,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 			if (event.id == scheduler.getState().select_id) {
 				css += " selected";
 			}
-			if ( event.password != "undefined" && event.password != "" && event.password != null && event.readonly != null)
-				css +=  "no_resize";
-			
+			if (event.password != "undefined" && event.password != ""
+					&& event.password != null && event.readonly != null)
+				css += "no_resize";
+
 			return css;
 		};
 
@@ -320,90 +359,111 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 		var today = new Date();
 		var i = 0;
 		scheduler.init('scheduler_here', new Date(today.getFullYear(), today
-				.getMonth(), today.getDate()),"timeline");
-		
-		/* scheduler.attachEvent("onBeforeLightbox", function (id){
-			var a = scheduler.getEvent(id); 
-			if (a.password != "" && a.password != null	&& a.password != "undefined" && a.password != undefined )  
-				a.readonly = "1";
-			if (a.password === window.pass) {
-				a.readonly = null;    
-			}
-			return true;
-		}); */
-		
-		scheduler.attachEvent("onBeforeLightbox",
-				function(id) {
-					scheduler.resetLightbox();
-					var buttonsRight, buttonsLeft;
+				.getMonth(), today.getDate()), "timeline");
+  
+		var isadmin ="${admin}";
 
-					if (scheduler.getState().new_event) {
+		scheduler.attachEvent("onBeforeLightbox", function(id) {
+			scheduler.resetLightbox();  
+			var buttonsRight = [];
+			var buttonsLeft = ["dhx_cancel_btn" ];
+			if (scheduler.getState().new_event) {
+				buttonsRight = [ "dhx_delete_btn" ];
+				buttonsLeft = [ "dhx_save_btn", "dhx_cancel_btn" ];
+			} else {
+				if (isadmin == "isnotadmin") {
+					
+					var WrongPass = true;
+					var a = scheduler.getEvent(id);
+					if (a.password === "" || a.password === null
+							|| a.password === "undefined"
+							|| a.password === undefined)
+						WrongPass = false;
+					if (a.password === window.pass) {
+						a.readonly = null;
+						WrongPass = false;
+					}
+
+					if (WrongPass === false) {
 						buttonsRight = [ "dhx_delete_btn" ];
 						buttonsLeft = [ "dhx_save_btn", "dhx_cancel_btn" ];
-					} else {
-						var WrongPass = true;
-						var a = scheduler.getEvent(id);
-						if (a.password === "" || a.password === null
-								|| a.password === "undefined"
-								|| a.password === undefined)
-							WrongPass = false;
-						if (a.password === window.pass) {
-							a.readonly = null;
-							WrongPass = false;
-						}
-
-						if (WrongPass === false) {
-							buttonsRight = [ "dhx_delete_btn" ];
-							buttonsLeft = [ "dhx_save_btn", "dhx_cancel_btn" ];
-						} else {
-							buttonsRight = [];
-							buttonsLeft = [ "dhx_cancel_btn" ];
-						}
+					} else { 
+						a.password = "****";
+						buttonsRight = [];
+						buttonsLeft = [ "dhx_cancel_btn" ];
 					}
-					scheduler.config.buttons_right = buttonsRight;
-					scheduler.config.buttons_left = buttonsLeft;
-					return true;
-				});
-
-		  
-		scheduler.attachEvent("onBeforeDrag",function(id) {
-		   	i = 0;
-		   	window.pass = null;
-			var a = scheduler.getEvent(id);
-			if (a!=null || a!= undefined) {
-				if (a.password != "" && a.password != null
-						&& a.password != "undefined") {
-					a.readonly = "1";
-					var mk = prompt(
-							"Cuộc họp này có mật khẩu, hãy nhập mật khẩu để sửa. Nếu không nhập thì chỉ có thể xem!",
-							"");
-					window.pass = mk;
-					if (mk != null && mk != "" && mk != "undefined") {
-						if (a.password === mk) { 
-							a.readonly = null; 
-						}
-					}
-				} else {
-					a.readonly = null; 
 				} 
-				return scheduler.showLightbox(id); 
-			}  
-		return true;
-		}); 
+				else
+				{ 
+				buttonsRight = [ "dhx_delete_btn" ];
+				buttonsLeft = [ "dhx_save_btn", "dhx_cancel_btn" ];
+				}
+			}
+			scheduler.config.buttons_right = buttonsRight;
+			scheduler.config.buttons_left = buttonsLeft;
+			return true;
+		});
+
+	scheduler.attachEvent("onBeforeDrag",function(id) {
+			i = 0;
+			window.pass = null;
+			var a = scheduler.getEvent(id);
+			if (a != null || a != undefined) {
+				if (isadmin == "isnotadmin") {
+					if (a.password != "" && a.password != null
+							&& a.password != "undefined") {
+						a.readonly = "1";
+						var mk = prompt(
+								"Cuộc họp này có mật khẩu, hãy nhập mật khẩu để sửa. Nếu không nhập thì chỉ có thể xem!",
+								"");
+						window.pass = mk;
+						if (mk != null && mk != ""
+								&& mk != "undefined") {
+							if (a.password === mk) {
+								a.readonly = null;
+							}
+						}
+					} else {
+						a.readonly = null;
+					}
+				}
+				return scheduler.showLightbox(id);
+			}
+			return true;
+		});
 		scheduler.form_blocks.textarea.set_value = function(node, value, ev) {
-		  if (value == undefined || value == 'undefined') {
-				value="";
-			} 
+			if (value == undefined || value == 'undefined') {
+				value = "";
+			}
 			node.firstChild.value = value;
 			i++;
-			if (i == 3 && ev.password != "undefined" && ev.password != "" && ev.password != null) {
-				if (ev.password != window.pass) { 
+			if (i == 3 && ev.password != "undefined" && ev.password != ""
+					&& ev.password != null) {
+				if (ev.password != window.pass) {
 					node.style.display = "none";
 					scheduler.setLightboxSize();
-				} 
+				}
 			}
 		}
 
+		
+		scheduler.attachEvent("onEventSave",function(id,ev,is_new){
+		    if (ev.requests === requestsPlaceHolder) {
+		    	ev.requests ="";
+		    }
+		    
+		    if (ev.password === passwordPlaceHolder) {
+		    	ev.password ="";
+		    }
+		    
+		    if (ev.notes === notesPlaceHolder) {
+		    	ev.notes ="";
+		    }
+		    return true;
+		})
+		
+		scheduler.xy.margin_top = 140;
+		
 		scheduler.config.prevent_cache = true;
 		scheduler.load("events", "json");
 		var dp = new dataProcessor("events");
@@ -411,7 +471,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 		dp.setTransactionMode("POST", false);
 
 	}
- 
+
 	function show_minical() {
 		if (scheduler.isCalendarVisible()) {
 			scheduler.destroyCalendar();
@@ -438,20 +498,30 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 		<div class="overlay"></div>
 		<div class="text">GMO RUNSYSTEM - HỆ THỐNG ĐẶT PHÒNG HỌP</div>
 	</div>
-	<div id="scheduler_here" class="dhx_cal_container dhx_scheduler_week_unit"	style="width: 100%; height: 100%; z-index: 1000;">
-		<div class="dhx_cal_navline" style="width: 956px; height: 59px; left: 0px; top: 0px;">
+	<div id="scheduler_here"
+		class="dhx_cal_container dhx_scheduler_week_unit"
+		style="width: 100%; height: 100%; z-index: 1000;">
+		<div class="dhx_cal_navline"
+			style="width: 956px; height: 59px; left: 0px; top: 0px;">
 			<div class="dhx_cal_prev_button">&nbsp;</div>
 			<div class="dhx_cal_next_button">&nbsp;</div>
 			<div class="dhx_cal_today_button">Today</div>
-			<div class="dhx_minical_icon" id="dhx_minical_icon" onclick="show_minical()">&nbsp;</div>
+			<div class="dhx_minical_icon" id="dhx_minical_icon"
+				onclick="show_minical()">&nbsp;</div>
 			<div class="dhx_cal_date" style="left: 100px;"></div>
-			<div class="dhx_cal_tab dhx_cal_tab_first" name="day_tab" style="right: auto; left: 14px;">Day</div>
-			<div class="dhx_cal_tab" name="week_tab" style="right: auto; left: 75px;">Week</div>
-			<div class="dhx_cal_tab dhx_cal_tab_standalone" name="timeline_tab" style="right: auto; left: 211px; width: 90px;">Lịch Phòng Họp</div>
-			<div class="dhx_cal_tab dhx_cal_tab_last" name="month_tab"	style="right: auto; left: 136px;">Month</div>
+			<div class="dhx_cal_tab dhx_cal_tab_first" name="day_tab"
+				style="right: auto; left: 14px;">Day</div>
+			<div class="dhx_cal_tab" name="week_tab"
+				style="right: auto; left: 75px;">Week</div>
+			<div class="dhx_cal_tab dhx_cal_tab_standalone" name="timeline_tab"
+				style="right: auto; left: 211px; width: 90px;">Lịch Phòng Họp</div>
+			<div class="dhx_cal_tab dhx_cal_tab_last" name="month_tab"
+				style="right: auto; left: 136px;">Month</div>
 		</div>
-		<div class="dhx_cal_header" style="width: 938px; height: 20px; left: -1px; top: 60px;"></div>
-		<div class="dhx_cal_data"	style="width: 956px; height: 69px; left: 0px; top: 81px;"></div>
+		<div class="dhx_cal_header"
+			style="width: 938px; height: 20px; left: -1px; top: 60px;"></div>
+		<div class="dhx_cal_data"
+			style="width: 956px; height: 69px; left: 0px; top: 81px;"></div>
 	</div>
 
 

@@ -53,7 +53,7 @@ public class CustomRecEventsManager extends DHXEventsManager {
 						list();
 				for (int i = 0; i < evs.size(); i++)
 					session.delete(evs.get(i));
-			} else if (status == DHXStatus.INSERT)
+			} else if (status == DHXStatus.INSERT) 
 				session.save(event); 
 			session.getTransaction().commit();
 		} catch (RuntimeException e) {

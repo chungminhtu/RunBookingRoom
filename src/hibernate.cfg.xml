@@ -6,9 +6,9 @@
 	<session-factory>
 
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://42.112.27.165:3306/runbookingroomdb?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/runbookingroomdb?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password"></property>
+		<property name="connection.password">admin</property>
 		
  		<property name="hibernate.connection.CharSet">utf8</property>
         <property name="hibernate.connection.characterEncoding">utf8</property>
@@ -31,9 +31,6 @@
 <property name="hibernate.c3p0.max_statement">0</property>
 <property name="hibernate.c3p0.preferredTestQuery">select 1;</property>
 
-
-		<mapping class="com.dhtmlx.booking" file="" jar=""
-			package="hibernate.cfg.xml" resource="Event.hbm.xml" />
 		<mapping class="com.dhtmlx.booking" file="" jar=""
 			package="hibernate.cfg.xml" resource="EventRec.hbm.xml" />
 

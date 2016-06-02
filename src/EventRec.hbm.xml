@@ -18,6 +18,7 @@
 		<property column="types" name="types" type="java.lang.String" />
 		<property column="readonly" name="readonly" type="java.lang.String" />
 		<property column="notes" name="notes" type="java.lang.String" />
+		<property column="requests" name="requests" type="java.lang.String" />
 		<property column="password" name="password" type="java.lang.String" />
 		<property column="rec_pattern" name="rec_pattern" type="java.lang.String" />
 	</class>

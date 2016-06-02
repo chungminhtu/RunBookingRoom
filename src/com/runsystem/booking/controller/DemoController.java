@@ -20,8 +20,13 @@ public class DemoController {
 
 	@RequestMapping("/")
 	public ModelAndView scheduler(HttpServletRequest request) throws Exception {
-		// creating required view
-		ModelAndView mnv = new ModelAndView("layout");
+		ModelAndView mnv = new ModelAndView("layout", "admin","isnotadmin");
+		return mnv;
+	}
+	
+	@RequestMapping("/admin@123")
+	public ModelAndView scheduleradmin(HttpServletRequest request) throws Exception {
+		ModelAndView mnv = new ModelAndView("layout", "admin","isadmin"); 
 		return mnv;
 	}
 }

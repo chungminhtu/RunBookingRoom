@@ -4,6 +4,7 @@ import com.dhtmlx.planner.DHXEventRec;
 
 public class EventRec extends DHXEventRec {
 	public String notes;
+	public String requests;
 	public String password;
 	public String rooms;
 	public String groupnames;
@@ -19,6 +20,14 @@ public class EventRec extends DHXEventRec {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getRequests() {
+		return requests;
+	}
+	
+	public void setRequests(String requests) {
+		this.requests = requests;
+	}
+	
 	public String getNotes() {
 		return notes;
 	}
