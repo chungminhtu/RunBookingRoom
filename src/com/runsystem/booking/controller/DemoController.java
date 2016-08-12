@@ -10,7 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DemoController {
-
+	public String s;
+	
 	@RequestMapping("/events")  
 	@ResponseBody
 	public String events(HttpServletRequest request)  {
@@ -20,7 +21,7 @@ public class DemoController {
 
 	@RequestMapping("/")
 	public ModelAndView scheduler(HttpServletRequest request) throws Exception {
-		ModelAndView mnv = new ModelAndView("layout", "admin","isnotadmin");
+		ModelAndView mnv = new ModelAndView("layout", "admin","isnotadmin"); 
 		return mnv;
 	}
 	
@@ -28,5 +29,5 @@ public class DemoController {
 	public ModelAndView scheduleradmin(HttpServletRequest request) throws Exception {
 		ModelAndView mnv = new ModelAndView("layout", "admin","isadmin"); 
 		return mnv;
-	}
+	} 
 }

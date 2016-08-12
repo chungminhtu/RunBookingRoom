@@ -10,6 +10,8 @@
 <link rel="stylesheet" type="text/css" href="./codebase/demo.css" />
 <link rel="stylesheet" type="text/css"
 	href="./codebase/dhtmlxscheduler_flat.css" />
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-2.x-git.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="./codebase/dhtmlxscheduler.js"
 	charset="utf-8"></script>
 <!-- <script type="text/javascript"	src="./codebase/ext/dhtmlxscheduler_cookie.js" charset="utf-8"></script> -->
@@ -196,9 +198,20 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 .no_resize .dhx_event_resize {
 	display: none;
 }
+.abc{
+color: red;
+	font-weight: bold;
+}
+
+.ddd{
+color: blue;
+	font-weight: bold;
+}
 </style>
 
 <script type="text/javascript" charset="utf-8">
+
+
 	function init() {
 		scheduler.config.xml_date = "%Y-%m-%d %H:%i";
 		scheduler.config.default_date = "(%l) Ngày %j %F %Y";
@@ -240,6 +253,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 		                   {key : 'Comm',label : 'Comm'}, 
 		                   {key : 'R&D',label : 'R&D'}, 
 		                   {key : '-----------',label : '-----------'}, 
+		                   {key : 'QM',label : 'QM'}, 
+		                   {key : 'SQA',label : 'SQA'}, 
+		                   {key : 'SPI',label : 'SPI'}, 
 		                   {key : 'VNLab',label : 'VNLab'}, 
 		                   {key : 'Others',label : 'Others'}, 
 		                   {key : 'Khach',label : 'Khach'}, 
@@ -258,11 +274,18 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 		var rooms = [ 
 		              {key : 44,label : "Chi Nhánh Hà Nội",open : true,children : 
 		            	  [ 
-                            {key : 20,label : "HN - Phòng MT1"}, 
-                            {key : 30,label : "HN - Phòng MT2"}, 
-                            {key : 35,label : "HN - Phòng MT3"}, 
-                            {key : 40,label : "HN - Việt Nam Lab"}, 
-                            {key : 50,label : "HN - Phòng Mr Tẩu"} 
+                            {key : 20,label : "<span class='abc'>MT1</span> (<span class='ddd'>20 chỗ ngồi, Có máy chiếu</span>) dùng để:</br>- Tiếp khách hàng.</br>- Họp nhóm > 10 người."}, 
+                            {key : 30,label : "<span class='abc'>MT2</span> (<span class='ddd'>10 chỗ ngồi, Có máy chiếu</span>) dùng để:</br>- Tiếp khách hàng (khi MT1 bận KH khác).</br>- Phỏng vấn ứng viên.</br>- Họp nhóm."}, 
+                            {key : 31,label : "<span class='abc'>MT3 Bàn họp sau Tenten</span> (<span class='ddd'>6-8 chỗ ngồi, Không máy chiếu</span>) dùng để:</br>- Họp nhóm."}, 
+                            {key : 32,label : "<span class='abc'>MT4 Bàn họp sau Tenten</span> (<span class='ddd'>6-8 chỗ ngồi, Không máy chiếu</span>) dùng để:</br>- Họp nhóm."}, 
+                             {key : 33,label : "<span class='abc'>Bàn tròn cạnh lễ tân</span> (<span class='ddd'>6 chỗ ngồi, Không máy chiếu</span>) dùng để:</br>- Họp nhóm.</br>- Tiếp khách."}, 
+                            {key : 34,label : "<span class='abc'>Bàn kính</span> (<span class='ddd'>6-8 chỗ ngồi, Không máy chiếu</span>) dùng để:</br>- Họp nhóm.</br>- Tiếp khách.</br>- Phỏng vấn ứng viên."}, 
+                            {key : 39,label : "<span class='abc'>Bàn họp cạnh Việt Nam lab & FSD</span> (<span class='ddd'>8-10 chỗ ngồi, Không máy chiếu</span>) dùng để:</br>- Họp nhóm.</br>- Phỏng vấn ứng viên."}, 
+                            {key : 40,label : "<span class='abc'>Bàn họp của Việt Nam lab</span> (<span class='ddd'>10 chỗ ngồi, Có máy chiếu</span>) dùng để:</br>- Họp nhóm Vnlab.</br>- Có thể họp nhóm khác khi cần thiết."}, 
+                            {key : 41,label : "<span class='abc'>Phòng sau thang máy (bên phải từ trong đi ra) </span> (<span class='ddd'>8-10 chỗ ngồi, Không máy chiếu</span>) dùng để:</br>- Họp nhómHọp nhóm (* Gấp lại bàn ghế sau khi sử dụng xong)."}, 
+                            {key : 50,label : "<span class='abc'>Phòng Mr Tẩu</span> (<span class='ddd'>6-8 chỗ ngồi, Có tivi</span>) dùng để:</br>- Họp BGĐ.</br>- Tiếp khách BGĐ.</br>- Phỏng vấn + Họp nhóm khi không còn phòng nào khác."}, 
+                            {key : 51,label : "<span class='abc'>Phòng Tầng 4</span> (<span class='ddd'>8 chỗ ngồi, Không máy chiếu</span>) dùng để:</br>- Đang làm phòng đào tạo tiếng Nhật.</br>- Có thể sử dụng từ 8:30-18:00 các ngày thứ 3,5 và từ 8:30-10:00 & 15:30-18:00 các ngày thứ 2,4,6 hàng tuần."}, 
+                              
                           ]
 		}, {
 			key : 66,
@@ -347,7 +370,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 			folder_dy : 20,
 			folder_events_available : false,
 			event_dy : 'full',
-			dy : 70
+			dy : 120
 		});
 
 		scheduler.addMarkedTimespan({ // blocks each Saturday, Sunday
@@ -448,6 +471,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 
 		
 		scheduler.attachEvent("onEventSave",function(id,ev,is_new){
+			 
 		    if (ev.requests === requestsPlaceHolder) {
 		    	ev.requests ="";
 		    }
@@ -463,9 +487,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 		})
 		
 		scheduler.xy.margin_top = 140;
-		
+		 scheduler.config.readonly = true;
+		 
 		scheduler.config.prevent_cache = true;
-		scheduler.load("events", "json");
+	var e =	scheduler.load("events", "json");
 		var dp = new dataProcessor("events");
 		dp.init(scheduler);
 		dp.setTransactionMode("POST", false);
@@ -487,6 +512,34 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 			});
 		}
 	}
+	
+
+	$.ajax({
+		type : "GET",
+		contentType : "application/json",
+		url : "${home}/RunBookingRoom/events",
+		dataType : 'json',
+		timeout : 100000,
+		success : function(data) {
+			console.log("SUCCESS: ", data); 
+			 if(Object.keys(data).length  != 0) 
+				 {
+				 scheduler.config.readonly = false; 
+				 }
+			 else
+			 { scheduler.config.readonly = true;
+			 alert("Dữ liệu bị lỗi chưa tải về được! Có thể do server hoặc đường truyền bị chậm. Hãy thử F5 để load lại. Hoặc báo cho Admin. Thankyou!");
+		 
+			 } 
+		},
+		error : function(e) {
+			console.log("ERROR: ", e); 
+		},
+		done : function(e) {
+			console.log("DONE");
+		}
+	});
+	
 </script>
 
 
